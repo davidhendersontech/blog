@@ -23,4 +23,26 @@ We have a dedicated key to increase the brightness and when we press that key it
 ```
 echo $(( $< /sys/class/backlight/intel_backlight/brightness) * 9/10))
 ```
-It looks complicated but all it does is grab the value of the brightness file, and times it by 9/10 (bash can't handle decimals), which echos 90% of the original brightness file's value.
+It looks complicated but all it does is grab the value of the brightness file, and times it by 9/10 (bash can't handle decimals), which echos 90% of the original brightness file's value. Use > to pipe it into the brightness file again and we have a script that will decrease our brightness. I saved this file as ```~/.scripts/brightnessDown```
+Now we're going to quickly make a copy, edit it to increase brightness instead of decrease and save it as brightnessDown. In a terminal : 
+```
+cp ~/.scripts/brightnessDown ~/.scripts/brightnessUp
+vim ~/.scripts/brightnessUp
+
+#!/bin/sh
+echo $(( $< /sys/class/backlight/intel_backlight/brightness) * 11/10) > /sys/class/backlight/intel_backlight/brightness
+```
+
+We just need to make this into a executable script and bam we have our scripts in place.
+```chmod +x brightnessUp brightnessDown```
+
+## Linking the keypress to the scripts
+
+I use i3-gaps which is a tiling window manager. Whenever I load i3 on an xserver a file called ```~/.config/i3/config``` is ran and through here I can set up my keybinds. This is going to be specific on which window manager / desktop enviorment you use but a google search should give you the right place and way to put these keybinds.
+
+```Xev``` is a beautiful tool that will print the name of the key you just pressed into a terminal. Using this we know that our brightness up key and down key are called ```XF86MonBrightnessUp XF86MonBrightnessDown``` respectively. 
+Adding that keybind to my i3 config would look something like this :
+```
+bindsym XF86MonBrightnessUp brightnessUp
+bindsym XF86MonBrightnessDown brightnessDown
+```
