@@ -1,6 +1,6 @@
 # Adjusting Brightness on a Thinkpad T430
 
-After buying a Thinkpad T430 off of ebay I went straight to insalling Arch Linux. Almost everything worked out of the box including sound(!) but none of my fn layer keys seemed to work.
+After buying a Thinkpad T430 off of ebay I went straight to insalling Arch Linux. Almost everything worked out of the box including sound(!) but none of my fn layer keys seemed to work. In my attempts at trying to change my friend into the linux ways, I figured I'd document my steps and thoughts in solving this problem. Just know that I am not a master, and this is a very specific case and a very specific solution I came up with. I hope this can serve as a documentation to problem solving on linux and basic linux terminal commands.
 
 ## How to change brightness
 
@@ -46,3 +46,15 @@ Adding that keybind to my i3 config would look something like this :
 bindsym XF86MonBrightnessUp brightnessUp
 bindsym XF86MonBrightnessDown brightnessDown
 ```
+This will run our ```brightnessUp``` script when we press our brightness up key, and run ```brightnessDown``` when we press brightness down. 
+
+## A few kinks
+
+Remember when we made our brightness file editable by our user profile? Well that breaks when we restart our computer.  We know that our ```chown``` command allows us to edit the file so an easy solution is just to run that command everytime we start our computer. 
+
+This is another distro-specific issue but for me theres a file specifically made for running commands on loading bash. I edited ```/etc/rc.local``` to simply run my ```chown``` command and was all set. 
+
+## Summary 
+
+These are all the steps I took to fix a simple problem and with all the googling and editing it probably took me about 30 minutes. I learned about the ```chown``` command and how to autorun commands on startup and if I had to do it again I could probably do it in just a few minutes. 
+
