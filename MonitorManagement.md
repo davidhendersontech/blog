@@ -23,7 +23,7 @@ to tie up some loose ends with more than one monitor.
 
 ### Polybar
 
-I use [this script] (https://github.com/polybar/polybar/issues/763) which looks
+I use (https://github.com/polybar/polybar/issues/763) which looks
 for all active monitors and passes that through as a varible for polybar. 
 
 Make a new shell script ( mine is named "launchpolybar.sh" ) and copy the code
