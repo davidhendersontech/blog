@@ -24,7 +24,7 @@ BUT DAVID, I hear you saying, "Whenever you're in a job you might have to take o
 
 I'm going to write another blog post to go over everything that we've learned so far and recap what everything does. That just leaves my thoughts...
 
-<pre> <b> I LOVE IT </b> <pre>
+<pre> <b> I LOVE IT </b> </pre>
 
 I came from a computer science degree program in college. I knew then that I could do programming as a job. Time flew by when I was working on code. Once I got bit by a challenge I had to keep working on it till I finished it. Sadly, this was exclusive to my computer classes.
 Other classes were boring and a chore for me. I could do it, but I had to make myself do it. When covid hit and everything went online it became even harder to keep myself accountable. I went from being straight A's and working hard to working even harder and straight c's.
